@@ -1,11 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
-import Navigator from './routes/homeStack';
 
-export default function App() {
+export default function TicketScreen() {
   return (
-    <Navigator />
+    <View style={styles.container}>
+      <Text>OneStop Ticket Exchange.</Text>
+      <Button
+        onPress={() => {
+          alert('test!');
+        }}
+        title="Ticket Screen!"
+      />
+      <StatusBar style="auto" />
+    </View>
   );
 }
 
