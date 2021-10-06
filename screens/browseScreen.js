@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
-import { Card, ListItem, Icon } from 'react-native-elements'
+import { View } from 'react-native';
+import { ListItem, Icon } from 'react-native-elements'
 
 const list = [
   {
@@ -14,12 +14,15 @@ const list = [
   }
 ]
 
-export default function BrowseScreen() {
+
+export default function BrowseScreen({ navigation }) {
   return (
     <View>
       {
         list.map((l, i) => (
-          <ListItem key={i} bottomDivider>
+          <ListItem key={i} onPress={
+            () => {navigation.navigate('GameScreen', {sportNeeded: l.name})}
+          } bottomDivider>
           <Icon name={l.icon} type="ionicon"></Icon>
             <ListItem.Content>
               <ListItem.Title>{l.name}</ListItem.Title>

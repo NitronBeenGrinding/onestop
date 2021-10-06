@@ -3,7 +3,7 @@ import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 
 export default function HomeScreen({ navigation }) {
-  const pressHendler = () => {
+  const pressHandler = () => {
     navigation.navigate('BrowseScreen');
   }
 
@@ -11,7 +11,7 @@ export default function HomeScreen({ navigation }) {
     <View style={styles.container}>
       <Text>OneStop Ticket Exchange.</Text>
       <Button
-        onPress={pressHendler}
+        onPress={pressHandler}
         title="Home Screen!"
       />
       <StatusBar style="auto" />

@@ -1,8 +1,9 @@
 import { createStackNavigator } from "react-navigation-stack";
 import { createAppContainer } from "react-navigation";
 import BrowseScreen from "../screens/browseScreen";
-import TicketScreen from "../screens/ticketScreen";
+import GameScreen from "../screens/gameScreen";
 import HomeScreen from "../screens/homeScreen";
+import TicketScreen from "../screens/ticketScreen";
 
 const screens = {
     Home: {
@@ -10,6 +11,9 @@ const screens = {
     },
     BrowseScreen: {
         screen: BrowseScreen
+    },
+    GameScreen: {
+        screen: GameScreen
     },
     TicketScreen: {
         screen: TicketScreen

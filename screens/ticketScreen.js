@@ -2,15 +2,17 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 
-export default function TicketScreen() {
+export default function TicketScreen({ navigation }) {
+  const sportNeeded = navigation.getParam('sportNeeded') ;
+
   return (
     <View style={styles.container}>
-      <Text>OneStop Ticket Exchange.</Text>
+      <Text>{sportNeeded}</Text>
       <Button
         onPress={() => {
           alert('test!');
         }}
-        title="Ticket Screen!"
+        title={"JSON.stringify(sportNeeded)"}
       />
       <StatusBar style="auto" />
     </View>
