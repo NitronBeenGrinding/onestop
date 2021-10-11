@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
+import { withAuthenticator } from 'aws-amplify-react-native'
+import Amplify, { Auth } from 'aws-amplify';
 
 export default function HomeScreen({ navigation }) {
   const pressHandler = () => {
@@ -9,7 +11,7 @@ export default function HomeScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text>OneStop Ticket Exchange.</Text>
+      <Text>Hello {Auth.user.username}!</Text>
       <Button
         onPress={pressHandler}
         title="Home Screen!"
