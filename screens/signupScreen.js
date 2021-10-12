@@ -4,7 +4,7 @@ import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 import { Auth } from 'aws-amplify';
 
 state = {
-  uniqname: '',
+  username: '',
   password: '',
   confirmationCode: '',
 };
@@ -15,17 +15,17 @@ function onChangeText(key, value) {
 
 function signUp() {
   Auth.signUp({
-    username: state[username],
-    password: state[password],
+    username: state.username,
+    password: state.password,
     attributes: {
-      email: state[username] + "@umich.edu"
+      email: state.username + "@umich.edu"
     },
   })
     .then(() => console.log('successful sign up!'))
     .catch(err => console.log('error signing up!: ', err));
 }
 function confirmSignUp() {
-  Auth.confirmSignUp(state[username], state[confirmationCode])
+  Auth.confirmSignUp(state.username, state.confirmationCode)
     .then(() => console.log('successful confirm sign up!'))
     .catch(err => console.log('error confirming signing up!: ', err));
 }
@@ -36,19 +36,19 @@ export default function SignUpScreen({ navigation }) {
       <TextInput
         style={styles.input}
         placeholder="uniqname"
-        onChangeText={onChangeText("uniqname", value)}
+        onChangeText={value => onChangeText("username", value)}
       />
       <TextInput
         style={styles.input}
         secureTextEntry={true}
         placeholder="password"
-        onChangeText={onChangeText("password", value)}
+        onChangeText={value => onChangeText("password", value)}
       />
       <Button title="Sign Up" onPress={signUp} />
       <TextInput
         style={styles.input}
         placeholder="confirmation code"
-        onChangeText={onChangeText("confirmationCode", value)}
+        onChangeText={value => onChangeText("confirmationCode", value)}
       />
       <Button title="Confirm Sign Up" onPress={confirmSignUp} />
     </View>

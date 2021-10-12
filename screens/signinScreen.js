@@ -21,9 +21,11 @@ export default function SignInScreen({ navigation, screenProps }) {
     const { username, password } = state;
     
     Auth.signIn(username, password)
+      .then(() => {
+        console.log("test");
+        screenProps.authenticate(true);
+      })
       .catch(err => console.log('error signing in!: ', err));
-    
-    screenProps.authenticate(true);
     console.log("successful")
   }
 
